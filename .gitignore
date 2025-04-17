@@ -1,0 +1,7 @@
+*.txt
+*.pdf
+*.docx
+*.tmp
+*.markdown
+node_modules
+package-lock.json
