@@ -2,6 +2,7 @@
 *.pdf
 *.docx
 *.tmp
+*.png
 *.markdown
 node_modules
 package-lock.json

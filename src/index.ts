@@ -19,7 +19,8 @@ async function runWithCircuitBreaker(): Promise<number[]> {
 
     for (let i = 0; i < 30; i++) {
         try {
-            await circuitBreaker.callService(() => downstreamService.fetchData());
+            const successResp = await circuitBreaker.callService(() => downstreamService.fetchData());
+            console.log(`Success response => ${successResp}`);
         } catch (error) {
 
         }
@@ -36,7 +37,8 @@ async function runWithoutCircuitBreaker(): Promise<number[]> {
     for (let i = 0; i < 30; i++) {
         const startTime = Date.now();
         try {
-            await downstreamService.fetchData();
+            const successResp = await downstreamService.fetchData();
+            console.log(`Success response => ${successResp}`);
         } catch (error) {
             console.log(`Error (No CB): ${(error as Error).message}`);
         }
